@@ -1,6 +1,12 @@
 package me.cortex.nvidium.managers;
 
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.function.Consumer;
+
+import org.lwjgl.system.MemoryUtil;
+
 import it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap;
 import me.cortex.nvidium.Nvidium;
 import me.cortex.nvidium.gl.RenderDevice;
@@ -9,11 +15,6 @@ import me.cortex.nvidium.util.IdProvider;
 import me.cortex.nvidium.util.UploadingBufferStream;
 import net.caffeinemc.mods.sodium.client.render.viewport.Viewport;
 import net.minecraft.core.SectionPos;
-import org.lwjgl.system.MemoryUtil;
-
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.function.Consumer;
 
 //8x4x8
 public class RegionManager {
@@ -269,7 +270,7 @@ public class RegionManager {
         if (region == null) {
             return false;
         } else {
-            return frustum.isBoxVisible((region.rx<<7)+(1<<6),(region.ry<<6)+(1<<5), (region.rz<<7)+(1<<6), 1<<6, 1<<5, 1<<6);
+            return frustum.isBoxVisible((region.rx<<7)+(1<<6),(region.ry<<6)+(1<<5), (region.rz<<7)+(1<<6));
         }
     }
 
